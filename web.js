@@ -4,17 +4,15 @@ var logfmt = require("logfmt");
 var app = express();
 var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
-redis.set('foo', 'bar');
-
-redis.get('foo', function(err, value) {
-  console.log('foo is: ' + value);
-});
-
-
 app.use(logfmt.requestLogger());
 
 app.get('/', function(req, res) {
-  res.send('Hello World!');
+	res.send('Hello World!');
+	redis.set('foo', 'bar');
+
+	redis.get('foo', function(err, value) {
+		console.log('foo is: ' + value);
+	});
 });
 
 var port = Number(process.env.PORT || 5000);
