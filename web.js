@@ -6,13 +6,36 @@ var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
 
 app.use(logfmt.requestLogger());
 
-app.get('/', function(req, res) {
-	res.send('Hello World!');
-	redis.set('foo', 'bar');
+app.get("/order/:order_id", function(req, res) {
+	console.log(req.params);
+    var order_id = req.params.order_id;
+    //var email = req.params.email;
+    var coupon = "ingressHint";
+    var secret_code = 'not_set';
 
-	redis.get('foo', function(err, value) {
-		console.log('foo is: ' + value);
-	});
+    //use order_id, email and coupon to verify order using symphony API
+    if (true) {
+    	redis.hmget("USED_CODES", order_id, function(err, value) {
+
+			if (!value.toString()) {
+					redis.lpop('NEW_CODES', function(err2, value2) {
+						secret_code = value2.toString();
+						redis.hset("USED_CODES", order_id, secret_code);
+						res.send(200, {"order_id": order_id, "secret_code": secret_code});
+					});
+				
+			} else {
+				secret_code = value.toString();
+				res.send(200, {"order_id": order_id, "secret_code": secret_code});
+			}
+		});
+
+    } else {
+    	res.send(200, {"order_id": order_id, "secret_code": 'invalid'});
+    }
+
+    
+	
 });
 
 var port = Number(process.env.PORT || 5000);
