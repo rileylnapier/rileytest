@@ -26,7 +26,7 @@ app.get("/order/:order_id/:email", function(req, res) {
     var orderId_param = req.params.order_id;
     var email_param = req.params.email;
 
-    var couponCode = "INGRESSHINT";
+    var couponCode = "HINTINGRESS";
     var secret_code = 'not_set';
 
     var api_key = "apiKeyDrinkHint";

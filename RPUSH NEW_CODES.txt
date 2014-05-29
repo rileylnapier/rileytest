@@ -1,35 +1,15 @@
-lpush NEW_CODES 101 
-lpush NEW_CODES 102 
-lpush NEW_CODES 103 
-lpush NEW_CODES 104 
-lpush NEW_CODES 105
-lpush NEW_CODES 106
-lpush NEW_CODES 107
-lpush NEW_CODES 108
-lpush NEW_CODES 109
-lpush NEW_CODES 110
-lpush NEW_CODES 111
-lpush NEW_CODES 112
-lpush NEW_CODES 113
-lpush NEW_CODES 114
-lpush NEW_CODES 115
-lpush NEW_CODES 116
-lpush NEW_CODES 117
-lpush NEW_CODES 118
-lpush NEW_CODES 119
-lpush NEW_CODES 120
-lpush NEW_CODES 121
-lpush NEW_CODES 122
-lpush NEW_CODES 123
-lpush NEW_CODES 124
-lpush NEW_CODES 125
-lpush NEW_CODES 126
-lpush NEW_CODES 127
-lpush NEW_CODES 128
-lpush NEW_CODES 129
-lpush NEW_CODES 130 
-lpush NEW_CODES 131 
-lpush NEW_CODES 132 
-lpush NEW_CODES 133 
-lpush NEW_CODES 134 
-lpush NEW_CODES 135
+lpush NEW_CODES 101   102   103   104   105  106  107  108  109  110  111  112  113  114  115  116  117  118  119  120  121  122  123  124  125  126  127  128  129  130   131   132   133   134   135
+
+
+
+lpush NEW_CODES FUEO4903L 498DK4304 S37340343 SA78F03R3 59CEBV531 FJ4DK5934 DL5ID9C9E SKGI4K598 SMRTI384C JFT3KRFL6 DJ54N8455 FUEO49032 498DK4302 S37340342 SA78F03R2 59CEBV532 FJ4DK5932 DL5ID9C92 SKGI4K592 SMRTI3842 JFT3KRFL2 DJ54N8452 FUEO49035 498DK4306 S37340345 SA78F03R0 59CEBV530 FJ4DK5930 DL5ID9C90 SKGI4K590 SMRTI3840 JFT3KRFL0 DJ54N8450
+
+
+
+
+var color = angular.element('[ng-controller="ProductAttrCtrl"]').scope().productInfo.allAttrs.color;
+$(".ng-scope.color").each(function( index ) {
+		if(color[index].value == 'multi') {
+			$( this ).css('background-image', 'url(' + "//s3.amazonaws.com/sneakpeeq-sites/mujus/images/multiswatch.png" + ')');
+		}
+	});
